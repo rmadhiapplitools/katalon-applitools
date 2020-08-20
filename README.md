@@ -30,6 +30,6 @@ Restart Katalon Studio (**Do not skip this step**)
 
 
 
-#### Tips
+#### Tip
 ‘Ctrl + Shift + O’ hotkeys to automatically fill in necessary import libraries in your test cases.
 
