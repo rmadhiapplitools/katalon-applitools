@@ -1,0 +1,67 @@
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+
+import org.openqa.selenium.WebDriver as WebDriver
+import org.openqa.selenium.remote.RemoteWebDriver
+import org.openqa.selenium.support.events.EventFiringWebDriver
+
+import com.applitools.eyes.EyesRunner
+import com.applitools.eyes.RectangleSize as RectangleSize
+import com.applitools.eyes.TestResultsSummary
+import com.applitools.eyes.selenium.ClassicRunner
+import com.applitools.eyes.selenium.Eyes as Eyes
+import com.applitools.eyes.selenium.fluent.Target
+import com.kms.katalon.core.webui.driver.DriverFactory as DF
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+
+
+
+
+
+
+WebUI.openBrowser('https://google.com')
+
+WebDriver innerDriver = DF.getWebDriver()
+
+
+EyesRunner runner = null
+runner = new ClassicRunner()
+
+
+Eyes eyes = new Eyes(runner)
+
+
+eyes.setServerUrl("INSERT SERVER URL")
+
+eyes.setApiKey("INSERT API KEY ")
+
+eyes.setForceFullPageScreenshot(true);
+
+
+//eyes.setLogHandler(new FileLogger("PATH TO YOUR /file.log",true,true));
+
+
+
+
+eyes.open(((RemoteWebDriver) (( (EventFiringWebDriver)innerDriver).getWrappedDriver())),"KATALON WEB APP NAME","YOUR TEST NAME ",new RectangleSize(1200, 600))
+
+WebUI.navigateToUrl('https://applitools.com/helloworld')
+
+WebUI.click(findTestObject('Object Repository/Page_Applitools/button_Click me'))
+
+
+eyes.check(Target.window().fully().withName("My First Screenshot"))
+
+
+
+try{
+	eyes.close(false)
+
+	TestResultsSummary result = runner.getAllTestResults(false);
+
+}
+catch (e){
+	eyes.abortIfNotClosed()
+}
+
+
+WebUI.closeBrowser()
