@@ -18,7 +18,7 @@ dependencies {
 ```
  gradle katalonCopyDependencies
 ````
-Restart Katalon Studio (**Do not skip this step**)
+4.Restart Katalon Studio (**Do not skip this step**)
 
 ### option2.Manually add External libraries
 
