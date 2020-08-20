@@ -27,3 +27,9 @@ Restart Katalon Studio (**Do not skip this step**)
 2.Extract the package
 
 4.In your katalon studio Navigate to **project** > **Settings** > **External Libraries** click on **+add** and select all the jar files
+
+
+
+#### Tips
+‘Ctrl + Shift + O’ hotkeys to automatically fill in necessary import libraries in your test cases.
+
